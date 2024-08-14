@@ -1,5 +1,5 @@
 <div class="list-item">
-    <div class="list-item--image">
+    <div *ngIf="item.imageUrl" class="list-item--image">
         <img [src]="item.imageUrl" alt="warehouse-item-image">
     </div>
     <div class="list-item--content">
