@@ -9,4 +9,5 @@
     <span>{{item.quantity}}x</span>
     <span>{{item.unitPrice | currency:'EUR'}}</span>
     <button class="list-item--button" (click)="addToShipment.emit()">Add to Shipment</button>
+    <button (click)="edit(item)">edit</button>
 </div>

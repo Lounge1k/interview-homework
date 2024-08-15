@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListItemComponent } from "./list-item/list-item.component";
-import { AddItemFormComponent } from './add-item-form/add-item-form.component';
+import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { Observable, of } from "rxjs";
 import { WarehouseItem } from "../../core/models/warehouseItem";
 import { ItemsService } from "../../services/items.service";
@@ -19,6 +19,7 @@ export class ItemsListComponent implements OnInit {
 
   constructor(private itemsService: ItemsService) { }
 
+  selectedProduct: any;
   items: Observable<any[]>;
 
   ngOnInit(): void {
@@ -34,20 +35,24 @@ export class ItemsListComponent implements OnInit {
   }
 
   addItem(): void {
+    this.selectedProduct = undefined;
     this.dialogElement?.nativeElement.showModal();
     // console.log(this.dialogElement?.nativeElement)
     // this.dialog.showModal();
   }
 
+  editItem(item: any): void {
+    this.selectedProduct = item;
+    console.log(this.selectedProduct);
+    this.dialogElement?.nativeElement.showModal();
+  }
+
   closeModal() {
     this.dialogElement?.nativeElement.close();
-    this.productForm?.reset();
   }
 
   onFormSubmit(formData: any) {
-    console.log(formData);
     this.items = this.itemsService.addProduct(formData);
-    // Here you would typically send the form data to a service
     this.closeModal();
   }
 }
