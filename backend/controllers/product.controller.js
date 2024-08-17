@@ -3,7 +3,7 @@ const products = [{
     name: "mock",
     description: "mock",
     quantity: 1,
-    unitPrice: 5
+    unitPrice: 4
 }];
 const getAllProducts = () => {
     // TODO: get products from DB
@@ -19,7 +19,19 @@ const addProduct = (product) => {
     return products;
 }
 
+const updateProduct = (updatedData) => {
+    // TODO: update product in disable
+    const { id, ...fields } = updatedData;
+    console.log(fields);
+    const updatedProduct = products.find(product => product.id === id);
+    return {
+        ...updatedProduct,
+        ...fields
+    };
+}
+
 module.exports = {
     getAllProducts,
-    addProduct
+    addProduct,
+    updateProduct
 }

@@ -17,8 +17,15 @@ router.get("/getAllProducts", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
     const newProduct = req.body;
+    console.log(newProduct);
     const products = productController.addProduct(newProduct);
     res.json(products);
+})
+
+router.put("/", (req, res) => {
+    const updatedData = req.body;
+    const updatedProduct = productController.updateProduct(updatedData);
+    res.json(updatedProduct);
 })
 
 module.exports = router;

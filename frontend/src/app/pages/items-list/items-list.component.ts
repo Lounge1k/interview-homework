@@ -1,26 +1,32 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ListItemComponent } from "./list-item/list-item.component";
+import { ListItemComponent } from './list-item/list-item.component';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
-import { Observable, of } from "rxjs";
-import { WarehouseItem } from "../../core/models/warehouseItem";
-import { ItemsService } from "../../services/items.service";
+import { Observable, of } from 'rxjs';
+import { Product } from '../../core/models/warehouseItem';
+import { ApiService } from '../../services/api/api.service';
+import { Store } from 'src/app/services/store/store.service';
 
 @Component({
   selector: 'app-items-list',
   standalone: true,
-  imports: [CommonModule, ListItemComponent, AddItemFormComponent],
+  imports: [CommonModule, ListItemComponent],
   templateUrl: './items-list.component.html',
   styleUrls: ['./items-list.component.scss'],
 })
 export class ItemsListComponent implements OnInit {
-  @ViewChild('addItemDialog') dialogElement: ElementRef<HTMLDialogElement>
+  @ViewChild('addItemDialog') dialogElement: ElementRef<HTMLDialogElement>;
   @ViewChild(AddItemFormComponent) productForm?: AddItemFormComponent;
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(
+    private apiService: ApiService,
+    private store: Store,
+  ) {
+    this.store.fetchProducts();
+  }
 
-  selectedProduct: any;
-  items: Observable<any[]>;
+  selectedProduct: Product;
+  items: Observable<Product[]>;
 
   ngOnInit(): void {
     this.getItems();
@@ -31,28 +37,30 @@ export class ItemsListComponent implements OnInit {
   }
 
   getItems(): void {
-    this.items = this.itemsService.getAllProducts()
+    // this.items = this.store.getAllProducts();
+    this.store.fetchProducts().subscribe(() => {
+      this.items = this.store.getAllProducts();
+    });
   }
 
   addItem(): void {
-    this.selectedProduct = undefined;
-    this.dialogElement?.nativeElement.showModal();
+    this.store.setSelectedProduct(undefined);
     // console.log(this.dialogElement?.nativeElement)
     // this.dialog.showModal();
   }
 
-  editItem(item: any): void {
-    this.selectedProduct = item;
-    console.log(this.selectedProduct);
-    this.dialogElement?.nativeElement.showModal();
+  editItem(item: Product): void {
+    this.store.setSelectedProduct(item);
+    // console.log(this.selectedProduct);
+    // this.dialogElement?.nativeElement.showModal();
   }
 
   closeModal() {
     this.dialogElement?.nativeElement.close();
   }
 
-  onFormSubmit(formData: any) {
-    this.items = this.itemsService.addProduct(formData);
-    this.closeModal();
-  }
+  // onFormSubmit(formData: any) {
+  //   this.items = this.store.addProduct(formData);
+  //   this.closeModal();
+  // }
 }
