@@ -18,8 +18,13 @@ export class ListItemComponent {
     private store: Store
   ) { }
 
-  edit(item: any) {
+  edit(item: Product) {
     this.store.setSelectedProduct(item);
   }
 
+  delete(id: number) {
+    this.store.deleteProduct(id).subscribe(() => {
+
+    });
+  }
 }

@@ -1,4 +1,4 @@
-const products = [{
+let products = [{
     id: 1,
     name: "mock",
     description: "mock",
@@ -30,8 +30,14 @@ const updateProduct = (updatedData) => {
     };
 }
 
+const removeProduct = (id) => {
+    // TODO: delete item from DB
+    products = products.filter(product => product.id !== id);
+}
+
 module.exports = {
     getAllProducts,
     addProduct,
-    updateProduct
+    updateProduct,
+    removeProduct
 }

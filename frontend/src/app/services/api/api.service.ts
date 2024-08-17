@@ -38,6 +38,12 @@ export class ApiService {
       )
   }
 
+  removeProduct(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}`, { body: { id } }).pipe(
+      catchError(this.handleError)
+    )
+  }
+
   // Error handling method
   private handleError(error: HttpErrorResponse) {
     let errorMessage = 'An unknown error occurred!';

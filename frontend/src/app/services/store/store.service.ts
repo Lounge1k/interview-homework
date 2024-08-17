@@ -86,4 +86,16 @@ export class Store {
       }),
     );
   }
+
+  deleteProduct(id: number) {
+    return this.apiService.removeProduct(id).pipe(
+      tap(() => {
+        const currentState = this.storeSubject.getValue();
+        const updatedProducts = currentState.products.filter(product => product.id !== id);
+        this.updateStore({
+          products: updatedProducts
+        });
+      })
+    )
+  }
 }

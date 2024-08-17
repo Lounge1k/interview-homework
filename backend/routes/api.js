@@ -28,4 +28,11 @@ router.put("/", (req, res) => {
     res.json(updatedProduct);
 })
 
+router.delete("/", (req, res) => {
+    const { id } = req.body;
+    console.log(req.body);
+    productController.removeProduct(id);
+    res.sendStatus(204);
+})
+
 module.exports = router;
