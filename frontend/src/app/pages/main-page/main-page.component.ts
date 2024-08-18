@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { CommonModule } from '@angular/common';
 import { ItemsListComponent } from '../items-list/items-list.component';
@@ -10,11 +10,8 @@ import { ItemsListComponent } from '../items-list/items-list.component';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss']
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

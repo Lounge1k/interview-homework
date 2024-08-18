@@ -38,6 +38,7 @@ export class ApiService {
       )
   }
 
+  // Remove product by Id
   removeProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}`, { body: { id } }).pipe(
       catchError(this.handleError)

@@ -1,7 +1,6 @@
 import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListItemComponent } from './list-item/list-item.component';
-import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { Observable, of } from 'rxjs';
 import { Product } from '../../core/models/warehouseItem';
 import { Store } from 'src/app/services/store/store.service';
@@ -14,9 +13,6 @@ import { Store } from 'src/app/services/store/store.service';
   styleUrls: ['./items-list.component.scss'],
 })
 export class ItemsListComponent implements OnInit {
-  @ViewChild('addItemDialog') dialogElement: ElementRef<HTMLDialogElement>;
-  @ViewChild(AddItemFormComponent) productForm?: AddItemFormComponent;
-
   constructor(
     private store: Store,
   ) {

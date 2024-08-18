@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Observable, of} from "rxjs";
-import {WarehouseItem} from "../../core/models/warehouseItem";
+import { Observable, of } from "rxjs";
+import { Product } from "../../core/models/warehouseItem";
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class ItemsMockService {
 
   constructor() { }
 
-  get items(): Observable<WarehouseItem[]> {
+  get items(): Observable<Product[]> {
     return of(this.#mockedItems)
   }
 
