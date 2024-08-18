@@ -4,7 +4,6 @@ import { ListItemComponent } from './list-item/list-item.component';
 import { AddItemFormComponent } from '../add-item-form/add-item-form.component';
 import { Observable, of } from 'rxjs';
 import { Product } from '../../core/models/warehouseItem';
-import { ApiService } from '../../services/api/api.service';
 import { Store } from 'src/app/services/store/store.service';
 
 @Component({
@@ -19,7 +18,6 @@ export class ItemsListComponent implements OnInit {
   @ViewChild(AddItemFormComponent) productForm?: AddItemFormComponent;
 
   constructor(
-    private apiService: ApiService,
     private store: Store,
   ) {
     this.store.fetchProducts();
@@ -32,12 +30,7 @@ export class ItemsListComponent implements OnInit {
     this.getItems();
   }
 
-  addItemToShipment(id: number): void {
-    // this.itemsService.addProduct()
-  }
-
   getItems(): void {
-    // this.items = this.store.getAllProducts();
     this.store.fetchProducts().subscribe(() => {
       this.items = this.store.getAllProducts();
     });
@@ -45,22 +38,9 @@ export class ItemsListComponent implements OnInit {
 
   addItem(): void {
     this.store.setSelectedProduct(undefined);
-    // console.log(this.dialogElement?.nativeElement)
-    // this.dialog.showModal();
   }
 
   editItem(item: Product): void {
     this.store.setSelectedProduct(item);
-    // console.log(this.selectedProduct);
-    // this.dialogElement?.nativeElement.showModal();
   }
-
-  closeModal() {
-    this.dialogElement?.nativeElement.close();
-  }
-
-  // onFormSubmit(formData: any) {
-  //   this.items = this.store.addProduct(formData);
-  //   this.closeModal();
-  // }
 }

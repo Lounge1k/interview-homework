@@ -1,6 +1,11 @@
 :host {
-  width: 100%;
-  flex: 1 0 50%;
+  flex: 0 1 50%;
   background-color: lightskyblue;
   padding: 20px;
+
+  .btn {
+    position: sticky;
+    top: 10px;
+    margin-bottom: 20px;
+  }
 }

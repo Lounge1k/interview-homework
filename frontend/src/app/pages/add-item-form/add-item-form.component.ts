@@ -54,22 +54,19 @@ export class AddItemFormComponent implements OnInit {
   onSubmit() {
     if (this.productForm.valid) {
       if (this.editMode) {
-        this.store.updateProduct(this.selectedProduct.id, this.productForm.value).subscribe(() => {
-
-        });
+        this.store.updateProduct(this.selectedProduct.id, this.productForm.value).subscribe();
       } else {
-        this.store.addProduct(this.productForm.value).subscribe(() => {
-
-        });
+        this.store.addProduct(this.productForm.value).subscribe();
       }
     }
   }
 
   onCancel() {
-    this.formCancel.emit();
+    if (this.editMode) {
+      this.productForm.patchValue(this.selectedProduct);
+    } else {
+      this.productForm.reset();
+    }
   }
 
-  reset() {
-    this.productForm.reset();
-  }
 }

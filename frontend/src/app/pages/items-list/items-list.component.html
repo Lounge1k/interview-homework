@@ -1,11 +1,5 @@
 <div class="items-list">
+    <button class="btn btn-primary" (click)="addItem()">Add item</button>
     <app-list-item *ngFor="let item of items | async" [item]="item">
     </app-list-item>
-    <button (click)="addItem()">Add item</button>
-    <button (click)="getItems()">get items</button>
-    <dialog #addItemDialog>
-        <h2>Add Item</h2>
-        <!-- <app-add-item-form (formSubmit)="onFormSubmit($event)"
-            (formCancel)="closeModal()"></app-add-item-form> -->
-    </dialog>
 </div>

@@ -1,14 +1,14 @@
 <div class="list-item">
-    <div *ngIf="item.imageUrl" class="list-item--image">
-        <img [src]="item.imageUrl" alt="warehouse-item-image">
-    </div>
-    <div class="list-item--content">
+    <div>
         <span><b>{{item.name}}</b></span>
-        <span>{{item.description}}</span>
     </div>
     <span>{{item.quantity}}x</span>
     <span>{{item.unitPrice | currency:'EUR'}}</span>
-    <button class="list-item--button" (click)="addToShipment.emit()">Add to Shipment</button>
-    <button (click)="edit(item)">edit</button>
-    <button (click)="delete(item.id!)">delete</button>
+
+    <div class="list-item__actions">
+        <button class="btn btn-small btn-primary" (click)="edit(item)">
+            edit
+        </button>
+        <button class="btn btn-small btn-secondary" (click)="delete(item.id!)">delete</button>
+    </div>
 </div>

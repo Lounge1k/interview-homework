@@ -23,8 +23,6 @@ export class ListItemComponent {
   }
 
   delete(id: number) {
-    this.store.deleteProduct(id).subscribe(() => {
-
-    });
+    this.store.deleteProduct(id).subscribe();
   }
 }
