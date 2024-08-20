@@ -33,7 +33,8 @@
 
     <div class="form-actions">
       <button type="button" (click)="onCancel()" class="btn btn-secondary">Cancel</button>
-      <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Submit</button>
+      <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary btn-loading"
+        [ngClass]="{'btn-loading': isSubmitting}">Submit</button>
     </div>
   </form>
 </div>

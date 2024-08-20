@@ -39,13 +39,5 @@
     &:hover {
       background-color: palevioletred;
     }
-
-    &::after {
-      content: '';
-      background: url('../../../../assets/loading.gif') no-repeat;
-      background-size: contain;
-      width: 16px;
-      height: 16px;
-    }
   }
 }

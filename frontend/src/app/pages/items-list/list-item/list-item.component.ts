@@ -12,7 +12,7 @@ import { Store } from 'src/app/services/store/store.service';
 })
 export class ListItemComponent {
   @Input() item: Product
-  loading = false;
+  isDeleting = false;
 
   constructor(
     private store: Store
@@ -23,10 +23,10 @@ export class ListItemComponent {
   }
 
   delete(id: number) {
-    this.loading = true;
+    this.isDeleting = true;
     this.store.deleteProduct(id).subscribe({
       complete: () => {
-        this.loading = false;
+        this.isDeleting = false;
       }
     });
   }

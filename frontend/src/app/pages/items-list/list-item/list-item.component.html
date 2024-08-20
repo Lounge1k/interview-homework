@@ -11,8 +11,8 @@
             <button class="btn btn-small btn-edit" (click)="edit(item)">
                 edit
             </button>
-            <button class="btn btn-small btn-delete" (click)="delete(item.id!)">
-                delete {{''}}
+            <button class="btn btn-small btn-delete" [ngClass]="{'btn-loading': isDeleting}" (click)="delete(item.id!)">
+                delete
             </button>
         </div>
     </div>

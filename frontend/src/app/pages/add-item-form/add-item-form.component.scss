@@ -66,7 +66,6 @@ label {
 
     small {
         display: block;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
@@ -80,7 +79,7 @@ label {
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .form-actions {
         flex-direction: column;
         gap: 10px;

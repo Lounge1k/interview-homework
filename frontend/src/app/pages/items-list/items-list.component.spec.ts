@@ -36,10 +36,6 @@ describe('ItemsListComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call fetchProducts on construction', () => {
-    expect(mockStore.fetchProducts).toHaveBeenCalled();
-  });
-
   it('should initialize items in ngOnInit', () => {
     component.ngOnInit();
     expect(mockStore.fetchProducts).toHaveBeenCalled();

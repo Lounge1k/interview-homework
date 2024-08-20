@@ -18,6 +18,7 @@ import { Store } from '../../services/store/store.service';
 })
 export class AddItemFormComponent implements OnInit {
   productForm: FormGroup;
+  isSubmitting = false;
   editMode = false;
   selectedProduct: Product;
 
@@ -49,10 +50,19 @@ export class AddItemFormComponent implements OnInit {
 
   onSubmit() {
     if (this.productForm.valid) {
+      this.isSubmitting = true;
       if (this.editMode) {
-        this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe();
+        this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe({
+          complete: () => {
+            this.isSubmitting = false;
+          }
+        });
       } else {
-        this.store.addProduct(this.productForm.value).subscribe();
+        this.store.addProduct(this.productForm.value).subscribe({
+          complete: () => {
+            this.isSubmitting = false;
+          }
+        });
       }
     }
   }

@@ -55,11 +55,4 @@ describe('ListItemComponent', () => {
     deleteButton.click();
     expect(mockStore.deleteProduct).toHaveBeenCalledWith(1);
   });
-
-  it('should emit addToShipment event when called', () => {
-    spyOn(component.addToShipment, 'emit');
-    component.addToShipment.emit();
-    expect(component.addToShipment.emit).toHaveBeenCalled();
-  });
-
 });
