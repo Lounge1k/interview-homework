@@ -1,14 +1,19 @@
 <div class="list-item">
-    <div>
+    <div class="list-item-name">
         <span><b>{{item.name}}</b></span>
     </div>
-    <span>{{item.quantity}}x</span>
-    <span>{{item.unitPrice | currency:'EUR'}}</span>
 
-    <div class="list-item__actions">
-        <button class="btn btn-small btn-primary" (click)="edit(item)">
-            edit
-        </button>
-        <button class="btn btn-small btn-secondary" (click)="delete(item.id!)">delete</button>
+    <div class="list-item-info">
+        <span>{{item.quantity}}x</span>
+        <span>{{item.unitPrice | currency:'EUR'}}</span>
+
+        <div class="list-item__actions">
+            <button class="btn btn-small btn-edit" (click)="edit(item)">
+                edit
+            </button>
+            <button class="btn btn-small btn-delete" (click)="delete(item.id!)">
+                delete {{''}}
+            </button>
+        </div>
     </div>
 </div>

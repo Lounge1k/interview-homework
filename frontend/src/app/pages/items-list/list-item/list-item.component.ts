@@ -12,7 +12,7 @@ import { Store } from 'src/app/services/store/store.service';
 })
 export class ListItemComponent {
   @Input() item: Product
-  @Output() addToShipment: EventEmitter<void> = new EventEmitter<void>()
+  loading = false;
 
   constructor(
     private store: Store
@@ -23,6 +23,11 @@ export class ListItemComponent {
   }
 
   delete(id: number) {
-    this.store.deleteProduct(id).subscribe();
+    this.loading = true;
+    this.store.deleteProduct(id).subscribe({
+      complete: () => {
+        this.loading = false;
+      }
+    });
   }
 }

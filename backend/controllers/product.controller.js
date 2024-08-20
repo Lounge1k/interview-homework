@@ -1,10 +1,5 @@
-let products = [{
-    id: 1,
-    name: "mock",
-    description: "mock",
-    quantity: 1,
-    unitPrice: 4
-}];
+let products = [];
+
 const getAllProducts = () => {
     // TODO: get products from DB
     return products;
@@ -22,12 +17,18 @@ const addProduct = (product) => {
 const updateProduct = (updatedData) => {
     // TODO: update product in disable
     const { id, ...fields } = updatedData;
-    console.log(fields);
-    const updatedProduct = products.find(product => product.id === id);
-    return {
-        ...updatedProduct,
+    const productIndex = products.findIndex(product => product.id === id);
+
+    if (productIndex === -1) {
+        throw new Error(`Product with id ${id} not found`);
+    }
+
+    products[productIndex] = {
+        ...products[productIndex],
         ...fields
     };
+
+    return products[productIndex];
 }
 
 const removeProduct = (id) => {

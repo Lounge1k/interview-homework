@@ -76,6 +76,7 @@ body {
 
 
     &-disabled,
+    &:disabled,
     &.button-primary[disabled],
     &.button-secondary[disabled],
     &.button-error[disabled] {
@@ -89,18 +90,4 @@ body {
         }
     }
 
-}
-
-@keyframes ellipsis {
-    0% {
-        content: ".";
-    }
-
-    33% {
-        content: "..";
-    }
-
-    66% {
-        content: "...";
-    }
 }

@@ -29,7 +29,7 @@ export class Store {
     });
   }
 
-  getSelectedProduct() {
+  getSelectedProduct(): Observable<Product> {
     return new Observable((observer) => {
       this.store.subscribe((state) => {
         observer.next(state.selectedProduct);
@@ -93,7 +93,8 @@ export class Store {
         const currentState = this.storeSubject.getValue();
         const updatedProducts = currentState.products.filter(product => product.id !== id);
         this.updateStore({
-          products: updatedProducts
+          products: updatedProducts,
+          selectedProduct: currentState.selectedProduct?.id === id ? undefined : currentState.selectedProduct
         });
       })
     )

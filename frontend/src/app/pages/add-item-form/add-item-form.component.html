@@ -1,4 +1,4 @@
-<div class="form-container">
+<div [ngClass]="['form-container', editMode ? 'form-container__edit': '']">
   <h3 class="form-title">{{editMode ? "Edit" : "Add"}} item</h3>
   <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
     <div class="form-group">
@@ -32,8 +32,8 @@
     </div>
 
     <div class="form-actions">
-      <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Submit</button>
       <button type="button" (click)="onCancel()" class="btn btn-secondary">Cancel</button>
+      <button type="submit" [disabled]="!productForm.valid" class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>

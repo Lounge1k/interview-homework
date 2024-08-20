@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Product } from '../../core/models/warehouseItem';
 import {
   ReactiveFormsModule,
   FormBuilder,
@@ -7,8 +8,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { Store } from '../../services/store/store.service';
-import { ApiService } from '../../services/api/api.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-add-item-form',
@@ -20,14 +19,9 @@ import { Subscription } from 'rxjs';
 export class AddItemFormComponent implements OnInit {
   productForm: FormGroup;
   editMode = false;
-  selectedProduct: any;
-  private subscription: Subscription;
-
-  @Output() formSubmit = new EventEmitter<any>();
-  @Output() formCancel = new EventEmitter<void>();
+  selectedProduct: Product;
 
   constructor(
-    private apiService: ApiService,
     private store: Store,
     private fb: FormBuilder,
   ) {
@@ -39,12 +33,14 @@ export class AddItemFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.store.getSelectedProduct().subscribe((newProduct: any) => {
+    this.store.getSelectedProduct().subscribe((newProduct: Product) => {
       if (newProduct) {
+        // Editing a product
         this.editMode = true;
         this.selectedProduct = newProduct;
         this.productForm.patchValue(newProduct);
       } else {
+        // Creating a new product
         this.editMode = false;
         this.productForm.reset();
       }
@@ -54,7 +50,7 @@ export class AddItemFormComponent implements OnInit {
   onSubmit() {
     if (this.productForm.valid) {
       if (this.editMode) {
-        this.store.updateProduct(this.selectedProduct.id, this.productForm.value).subscribe();
+        this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe();
       } else {
         this.store.addProduct(this.productForm.value).subscribe();
       }

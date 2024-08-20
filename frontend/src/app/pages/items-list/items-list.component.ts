@@ -15,9 +15,7 @@ import { Store } from 'src/app/services/store/store.service';
 export class ItemsListComponent implements OnInit {
   constructor(
     private store: Store,
-  ) {
-    this.store.fetchProducts();
-  }
+  ) { }
 
   selectedProduct: Product;
   items: Observable<Product[]>;
