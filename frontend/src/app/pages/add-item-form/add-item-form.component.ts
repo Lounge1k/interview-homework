@@ -52,16 +52,12 @@ export class AddItemFormComponent implements OnInit {
     if (this.productForm.valid) {
       this.isSubmitting = true;
       if (this.editMode) {
-        this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe({
-          complete: () => {
-            this.isSubmitting = false;
-          }
+        this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe(() => {
+          this.isSubmitting = false
         });
       } else {
-        this.store.addProduct(this.productForm.value).subscribe({
-          complete: () => {
-            this.isSubmitting = false;
-          }
+        this.store.addProduct(this.productForm.value).subscribe(() => {
+          this.isSubmitting = false;
         });
       }
     }

@@ -24,10 +24,8 @@ export class ListItemComponent {
 
   delete(id: number) {
     this.isDeleting = true;
-    this.store.deleteProduct(id).subscribe({
-      complete: () => {
-        this.isDeleting = false;
-      }
+    this.store.deleteProduct(id).subscribe(() => {
+      this.isDeleting = false;
     });
   }
 }

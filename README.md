@@ -1,26 +1,35 @@
 # Interview Homework
 
-Congratulations on making it through our awesome Talent Acquisition Team! You seem like a great candidate to join our team. Before the next round of interviews, we’d like to see some of your coding skills in action.
+## Overview
+
+A warehouse application where it is possible to add, read, update and delete warehouse products.
+
+Consists of two parts: 
+
+1. Client side application written in typescript on Angular framework 
+2. Server side application written in javascript on express framework.
+
+Both of server and client should be running at the same time for application to work normally.
+
+For running and installing the parts refore to the documentation below
 
 ## Backend
 
-The `backend/` folder contains the generated structure of an Express application, along with instructions for the functional requirements inside its [README](./backend/README.md). Please showcase your skills by developing a REST API for a Warehouse application.
+The `backend/` folder contains the server application. Please refer to [README](./backend/README.md) for installation and running installation.
 
 ## Frontend
 
-The `frontend/` folder contains the generated structure of an Angular application, along with instructions for the functional requirements inside its [README](./frontend/README.md). Please showcase your skills by developing a client-facing application for the Warehouse.
+The `frontend/` folder contains the server application. Please refer to [README](./frontend/README.md) for installation and running installation.
 
-## Fullstack
+## Possible improvements
 
-If you applied for a fullstack position, complete the assessment tasks for listing, adding, editing, and removing products in both the backend and frontend.
-
-In the end, we should be able to test the implemented functionality of the backend through the frontend. This means you should start both the backend and frontend locally and use the Warehouse application to ensure everything works seamlessly.
+* Adding a pagintaion so in case of many products loading simultaniusly application doesn't crash
+* Erorr handling and error messages when server is not responding
+* Mobile version
+* Implementing design system for colors/spacing/typography or using existing one
+* A script to run both FE and BE from one command
 
 ## Criteria
-
-To be clear about what we’re looking for, , by sharing criterias, we are trying to help you prioritize your focus on what matters most for us.
-
-We will evaluate your work based on the following criteria:
 
 - **Code design and architecture** - Is the architecture of application clear? Does it use patterns that helps with maintainability and scalability?
 - **Code quality**: Is the code clean, well-structured, and easy to understand?

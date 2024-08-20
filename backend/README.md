@@ -2,6 +2,18 @@
 
 This folder serves as the scaffold of the application that is a part of the interview process for candidates attending on the position in CloudTalk.
 
+## Installing
+
+1. On the root folder run ````npm install```` to install necessary packages
+2. Run ````npm run start```` to run the server application.
+By default application will run on `http://localhost:3000`
+
+## Overview
+
+* The API endpoints are available under the `/api` URL. 
+* Swagger documentation is available at `/api-docs`.
+* The application is served with CORS disabled for testing purposes.
+
 ## Assignment
 
 1. Warehouse application, needs API for following features

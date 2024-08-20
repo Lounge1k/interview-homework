@@ -2,6 +2,13 @@
 
 This repository serves as the scaffold of the application that is a part of the interview process for candidates attending on the position in CloudTalk.
 
+## Installing
+
+1. Run ````npm install```` to install necessary packages
+2. Run ````npm run start```` to run the client application.
+
+By default application will run on `http://localhost:4200`
+
 ## Assignment
 
 1. As a warehouse, we would like to have two main features
