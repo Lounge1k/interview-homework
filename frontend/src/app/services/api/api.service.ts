@@ -9,7 +9,7 @@ import { Product } from 'src/app/core/models/warehouseItem';
 })
 export class ApiService {
 
-  private apiUrl = `https://l2fth4-3000.csb.app/api`; // Replace with your actual API endpoint
+  private apiUrl = `http://localhost:3000/api`; // Replace with your actual API endpoint
 
   constructor(private http: HttpClient) { }
 
