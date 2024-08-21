@@ -17,9 +17,13 @@ import { Store } from '../../services/store/store.service';
   styleUrls: ['./add-item-form.component.scss'],
 })
 export class AddItemFormComponent implements OnInit {
+  // Form Object
   productForm: FormGroup;
+  // Is form getting submitted
   isSubmitting = false;
+  // Is in edit mode
   editMode = false;
+  // Currently selected item for edit
   selectedProduct: Product;
 
   constructor(
@@ -52,10 +56,12 @@ export class AddItemFormComponent implements OnInit {
     if (this.productForm.valid) {
       this.isSubmitting = true;
       if (this.editMode) {
+        // Update selected product
         this.store.updateProduct(this.selectedProduct.id!, this.productForm.value).subscribe(() => {
           this.isSubmitting = false
         });
       } else {
+        // Add newly created product
         this.store.addProduct(this.productForm.value).subscribe(() => {
           this.isSubmitting = false;
         });
@@ -65,8 +71,10 @@ export class AddItemFormComponent implements OnInit {
 
   onCancel() {
     if (this.editMode) {
+      // Reset item to its original state
       this.productForm.patchValue(this.selectedProduct);
     } else {
+      // Reset form to empty state
       this.productForm.reset();
     }
   }

@@ -1,6 +1,6 @@
 # Angular application for Warehouse
 
-This repository serves as the scaffold of the application that is a part of the interview process for candidates attending on the position in CloudTalk.
+This repository serves as client-side application that is a part of the interview process for candidates attending on the position in CloudTalk.
 
 ## Installing
 

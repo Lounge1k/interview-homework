@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Product } from 'src/app/core/models/warehouseItem';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Product } from 'src/app/core/models/warehouseItem';
 })
 export class ApiService {
 
-  private apiUrl = `http://localhost:3000/api`; // Replace with your actual API endpoint
+  private apiUrl = `http://localhost:3000/api`; // Replace with your actual API endpoint or get it from env variable
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,6 @@ export class ApiService {
   addProduct(product: Product): Observable<Product[]> {
     return this.http.post<Product[]>(this.apiUrl, product)
       .pipe(
-        retry(2),
         catchError(this.handleError)
       );
   }

@@ -1,33 +1,44 @@
-# Interview Homework
+# Warehouse Management System
 
-## Overview
+## Project Overview
 
-A warehouse application where it is possible to add, read, update and delete warehouse products.
+This project is a warehouse application that enables CRUD (Create, Read, Update, Delete) operations for warehouse products. The system is comprised of two main components:
 
-Consists of two parts: 
+1. A client-side application built with TypeScript using the Angular framework
+2. A server-side application developed in JavaScript using the Express framework
 
-1. Client side application written in typescript on Angular framework 
-2. Server side application written in javascript on express framework.
+Both the server and client applications must be running concurrently for the system to function properly.
 
-Both of server and client should be running at the same time for application to work normally.
+## Project Structure
 
-For running and installing the parts refore to the documentation below
+The project is organized into two main directories:
 
-## Backend
+- `backend/`: Contains the server-side application
+- `frontend/`: Contains the client-side application
 
-The `backend/` folder contains the server application. Please refer to [README](./backend/README.md) for installation and running installation.
+## Installation and Setup
 
-## Frontend
+### Backend
 
-The `frontend/` folder contains the server application. Please refer to [README](./frontend/README.md) for installation and running installation.
+For detailed instructions on installing and running the backend application, please refer to the [Backend README](./backend/README.md).
 
-## Possible improvements
+### Frontend
 
-* Adding a pagintaion so in case of many products loading simultaniusly application doesn't crash
-* Erorr handling and error messages when server is not responding
-* Mobile version
-* Implementing design system for colors/spacing/typography or using existing one
-* A script to run both FE and BE from one command
+For detailed instructions on installing and running the frontend application, please refer to the [Frontend README](./frontend/README.md).
+
+## Usage
+
+Ensure both the backend and frontend applications are running simultaneously to use the Warehouse Management System.
+
+## Future Enhancements
+
+The following improvements could be implemented in future iterations:
+
+1. Implement pagination to handle large numbers of products efficiently
+2. Enhance error handling and display user-friendly error messages for server connectivity issues
+3. Develop a mobile-responsive version of the application
+4. Implement a design system for consistent colors, spacing, and typography, or integrate an existing one
+5. Create a single command script to launch both frontend and backend applications simultaneously
 
 ## Criteria
 

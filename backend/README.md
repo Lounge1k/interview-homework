@@ -1,6 +1,6 @@
 # Express API for Warehouse app
 
-This folder serves as the scaffold of the application that is a part of the interview process for candidates attending on the position in CloudTalk.
+This repository serves as server-side application that is a part of the interview process for candidates attending on the position in CloudTalk.
 
 ## Installing
 

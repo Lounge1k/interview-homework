@@ -6,7 +6,7 @@ const getAllProducts = () => {
 }
 
 const addProduct = (product) => {
-    // TODO: add prodcut to DB
+    // TODO: add product to DB
     products.push({
         id: Date.now(), // simulate unique id,
         ...product
@@ -15,7 +15,7 @@ const addProduct = (product) => {
 }
 
 const updateProduct = (updatedData) => {
-    // TODO: update product in disable
+    // TODO: update product in DB
     const { id, ...fields } = updatedData;
     const productIndex = products.findIndex(product => product.id === id);
 
